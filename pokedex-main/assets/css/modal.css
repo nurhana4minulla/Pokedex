@@ -1,0 +1,448 @@
+/* assets/css/modal.css */
+
+/* Modal Overlay */
+.modal-overlay {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.75); /* Slightly darker overlay */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    padding: 1rem;
+    box-sizing: border-box;
+}
+
+.modal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Modal Content Box */
+.modal-content {
+    background-color: var(--text-light); 
+    border-radius: 15px;
+    position: relative;
+    width: 100%;
+    max-width: 580px;
+    max-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    transform: scale(0.95) translateY(10px);
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    opacity: 0;
+}
+
+.modal-overlay.active .modal-content {
+     transform: scale(1) translateY(0);
+     opacity: 1;
+}
+
+
+#modalBody {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    overflow: hidden; 
+}
+
+/* Modal Header */
+.modal-header {
+    padding: 20px 25px 15px 25px;
+    border-bottom: 1px solid rgba(0,0,0,0.08);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--text-light); 
+    flex-shrink: 0;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    position: relative;
+}
+
+.modal-pokemon-name {
+    margin: 0;
+    text-transform: capitalize;
+    font-size: 2em;
+    font-weight: 700;
+}
+
+.modal-pokemon-number {
+    font-size: 1.1em;
+    font-weight: 500;
+   
+    background-color: rgba(0,0,0,0.15); 
+    padding: 4px 10px;
+    border-radius: 10px;
+}
+
+/* Close Button */
+.modal-close {
+    position: absolute;
+    top: 12px;
+    right: 15px;
+    background: none;
+    border: none;
+    font-size: 2.2rem;
+    font-weight: 300;
+    
+    cursor: pointer;
+    line-height: 1;
+    padding: 0;
+    z-index: 10; 
+    transition: color 0.2s ease, transform 0.2s ease;
+}
+.modal-close:hover {
+   
+    transform: scale(1.1) rotate(90deg);
+}
+
+/* Modal Body Styling */
+.modal-body-content {
+    padding: 20px 25px 25px 25px;
+    flex-grow: 1;
+    overflow-y: auto; 
+    background-color: var(--text-light);
+}
+
+.modal-image-container {
+    text-align: center;
+    margin-bottom: 25px; 
+    background-color: var(--secondary-color); 
+    border-radius: 10px;
+    padding: 25px;
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.modal-image-container img {
+    max-width: 220px; 
+    height: auto;
+    max-height: 200px;
+    display: block;
+    margin: 0 auto;
+    filter: drop-shadow(0px 3px 5px rgba(0,0,0,0.15)); 
+}
+
+.modal-types {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 25px 0;
+    text-align: center;
+}
+
+.modal-types .type { 
+    display: inline-block;
+    padding: 7px 20px;
+    margin: 6px;
+    border-radius: 25px; 
+    color: var(--text-light); 
+    font-size: 0.95em;
+    font-weight: 500;
+    text-transform: capitalize;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.15);
+    
+}
+
+/* Section Styling */
+.modal-physical-details,
+.modal-abilities,
+.modal-stats {
+    margin-bottom: 25px;
+    background-color: #ffffff; 
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid #e9eef2;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.modal-physical-details h4,
+.modal-abilities h4,
+.modal-stats h4 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-size: 1.2em;
+    font-weight: 600;
+    color: var(--primary-color); 
+    border-bottom: 2px solid var(--accent-color); 
+    padding-bottom: 10px;
+}
+
+.modal-physical-details p,
+.modal-abilities p {
+    margin: 8px 0;
+    line-height: 1.7;
+    color: var(--text-dark);
+    font-size: 0.95em;
+}
+
+.modal-physical-details strong {
+     display: inline-block;
+     min-width: 75px;
+     color: #555;
+     font-weight: 600;
+}
+
+.modal-abilities .ability {
+    text-transform: capitalize;
+    background-color: var(--secondary-color);
+    color: var(--text-dark);
+    padding: 4px 10px;
+    border-radius: 6px;
+    margin-right: 6px;
+    display: inline-block;
+    margin-bottom: 6px;
+    font-size: 0.9em;
+}
+
+/* Stats Styling */
+.modal-stats .stat-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 12px;
+    font-size: 0.95em;
+}
+.modal-stats .stat-name {
+    text-transform: capitalize;
+    width: 120px;
+    flex-shrink: 0;
+    color: #555;
+    font-weight: 500;
+}
+.modal-stats .stat-value {
+    width: 45px;
+    text-align: right;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-right: 12px;
+}
+.modal-stats .stat-bar-background {
+    flex-grow: 1;
+    height: 12px;
+    background-color: #e9eef2; 
+    border-radius: 6px;
+    overflow: hidden;
+    box-shadow: inset 0 1px 2px rgba(0,0,0,0.05); 
+}
+.modal-stats .stat-bar {
+    height: 100%;
+
+    border-radius: 6px;
+    transition: width 0.6s ease-out;
+}
+
+
+
+.modal-header-text-light { color: var(--text-light); }
+.modal-header-text-dark { color: var(--text-dark); }
+.modal-header-badge-light-bg { background-color: rgba(255,255,255,0.3); }
+.modal-header-badge-dark-bg { background-color: rgba(0,0,0,0.2); }
+
+
+
+/* Normal */
+.modal-content.normal .modal-header { background-color: #a6a877; }
+.modal-content.normal .modal-pokemon-name { color: var(--text-light); }
+.modal-content.normal .modal-pokemon-number { color: var(--text-light); background-color: rgba(0,0,0,0.2); }
+.modal-content.normal .modal-close { color: var(--text-light); }
+.modal-content.normal .modal-close:hover { color: var(--text-light); opacity: 0.8;}
+.modal-content.normal .stat-bar { background-color: #a6a877; }
+.modal-types .normal { background-color: #a6a877; color: var(--text-light); }
+
+/* Fire */
+.modal-content.fire .modal-header { background-color: #ee7f30; }
+.modal-content.fire .modal-pokemon-name { color: var(--text-light); }
+.modal-content.fire .modal-pokemon-number { color: var(--text-light); background-color: rgba(0,0,0,0.2); }
+.modal-content.fire .modal-close { color: var(--text-light); }
+.modal-content.fire .modal-close:hover { color: var(--text-light); opacity: 0.8;}
+.modal-content.fire .stat-bar { background-color: #ee7f30; }
+.modal-types .fire { background-color: #ee7f30; color: var(--text-light); }
+
+/* Water */
+.modal-content.water .modal-header { background-color: #678fee; }
+.modal-content.water .modal-pokemon-name { color: var(--text-light); }
+.modal-content.water .modal-pokemon-number { color: var(--text-light); background-color: rgba(0,0,0,0.2); }
+.modal-content.water .modal-close { color: var(--text-light); }
+.modal-content.water .modal-close:hover { color: var(--text-light); opacity: 0.8;}
+.modal-content.water .stat-bar { background-color: #678fee; }
+.modal-types .water { background-color: #678fee; color: var(--text-light); }
+
+/* Grass */
+.modal-content.grass .modal-header { background-color: #77c850; }
+.modal-content.grass .modal-pokemon-name { color: var(--text-light); }
+.modal-content.grass .modal-pokemon-number { color: var(--text-light); background-color: rgba(0,0,0,0.2); }
+.modal-content.grass .modal-close { color: var(--text-light); }
+.modal-content.grass .modal-close:hover { color: var(--text-light); opacity: 0.8;}
+.modal-content.grass .stat-bar { background-color: #77c850; }
+.modal-types .grass { background-color: #77c850; color: var(--text-light); }
+
+/* Electric  */
+.modal-content.electric .modal-header { background-color: #f7cf2e; }
+.modal-content.electric .modal-pokemon-name { color: var(--text-dark); }
+.modal-content.electric .modal-pokemon-number { color: var(--text-dark); background-color: rgba(255,255,255,0.4); }
+.modal-content.electric .modal-close { color: var(--text-dark); }
+.modal-content.electric .modal-close:hover { color: var(--text-dark); opacity: 0.7;}
+.modal-content.electric .stat-bar { background-color: #f7cf2e; }
+.modal-types .electric { background-color: #f7cf2e; color: var(--text-dark); }
+
+/* Ice  */
+.modal-content.ice .modal-header { background-color: #98d5d7; }
+.modal-content.ice .modal-pokemon-name { color: var(--text-dark); }
+.modal-content.ice .modal-pokemon-number { color: var(--text-dark); background-color: rgba(255,255,255,0.4); }
+.modal-content.ice .modal-close { color: var(--text-dark); }
+.modal-content.ice .modal-close:hover { color: var(--text-dark); opacity: 0.7;}
+.modal-content.ice .stat-bar { background-color: #98d5d7; }
+.modal-types .ice { background-color: #98d5d7; color: var(--text-dark); }
+
+/* Fighting */
+.modal-content.fighting .modal-header { background-color: #bf3029; }
+.modal-content.fighting .modal-pokemon-name { color: var(--text-light); }
+.modal-content.fighting .modal-pokemon-number { color: var(--text-light); background-color: rgba(0,0,0,0.2); }
+.modal-content.fighting .modal-close { color: var(--text-light); }
+.modal-content.fighting .modal-close:hover { color: var(--text-light); opacity: 0.8;}
+.modal-content.fighting .stat-bar { background-color: #bf3029; }
+.modal-types .fighting { background-color: #bf3029; color: var(--text-light); }
+
+/* Poison */
+.modal-content.poison .modal-header { background-color: #a040a0; }
+.modal-content.poison .modal-pokemon-name { color: var(--text-light); }
+.modal-content.poison .modal-pokemon-number { color: var(--text-light); background-color: rgba(0,0,0,0.2); }
+.modal-content.poison .modal-close { color: var(--text-light); }
+.modal-content.poison .modal-close:hover { color: var(--text-light); opacity: 0.8;}
+.modal-content.poison .stat-bar { background-color: #a040a0; }
+.modal-types .poison { background-color: #a040a0; color: var(--text-light); }
+
+/* Ground */
+.modal-content.ground .modal-header { background-color: #dfbf69; }
+.modal-content.ground .modal-pokemon-name { color: var(--text-dark); } /* Ground can be tricky, test contrast */
+.modal-content.ground .modal-pokemon-number { color: var(--text-dark); background-color: rgba(255,255,255,0.4); }
+.modal-content.ground .modal-close { color: var(--text-dark); }
+.modal-content.ground .modal-close:hover { color: var(--text-dark); opacity: 0.7;}
+.modal-content.ground .stat-bar { background-color: #dfbf69; }
+.modal-types .ground { background-color: #dfbf69; color: var(--text-dark); }
+
+/* Flying */
+.modal-content.flying .modal-header { background-color: #a98ff0; }
+.modal-content.flying .modal-pokemon-name { color: var(--text-light); }
+.modal-content.flying .modal-pokemon-number { color: var(--text-light); background-color: rgba(0,0,0,0.2); }
+.modal-content.flying .modal-close { color: var(--text-light); }
+.modal-content.flying .modal-close:hover { color: var(--text-light); opacity: 0.8;}
+.modal-content.flying .stat-bar { background-color: #a98ff0; }
+.modal-types .flying { background-color: #a98ff0; color: var(--text-light); }
+
+/* Psychic */
+.modal-content.psychic .modal-header { background-color: #f65687; }
+.modal-content.psychic .modal-pokemon-name { color: var(--text-light); }
+.modal-content.psychic .modal-pokemon-number { color: var(--text-light); background-color: rgba(0,0,0,0.2); }
+.modal-content.psychic .modal-close { color: var(--text-light); }
+.modal-content.psychic .modal-close:hover { color: var(--text-light); opacity: 0.8;}
+.modal-content.psychic .stat-bar { background-color: #f65687; }
+.modal-types .psychic { background-color: #f65687; color: var(--text-light); }
+
+/* Bug */
+.modal-content.bug .modal-header { background-color: #a8b720; }
+.modal-content.bug .modal-pokemon-name { color: var(--text-light); }
+.modal-content.bug .modal-pokemon-number { color: var(--text-light); background-color: rgba(0,0,0,0.2); }
+.modal-content.bug .modal-close { color: var(--text-light); }
+.modal-content.bug .modal-close:hover { color: var(--text-light); opacity: 0.8;}
+.modal-content.bug .stat-bar { background-color: #a8b720; }
+.modal-types .bug { background-color: #a8b720; color: var(--text-light); }
+
+/* Rock */
+.modal-content.rock .modal-header { background-color: #b8a137; }
+.modal-content.rock .modal-pokemon-name { color: var(--text-light); }
+.modal-content.rock .modal-pokemon-number { color: var(--text-light); background-color: rgba(0,0,0,0.2); }
+.modal-content.rock .modal-close { color: var(--text-light); }
+.modal-content.rock .modal-close:hover { color: var(--text-light); opacity: 0.8;}
+.modal-content.rock .stat-bar { background-color: #b8a137; }
+.modal-types .rock { background-color: #b8a137; color: var(--text-light); }
+
+/* Ghost */
+.modal-content.ghost .modal-header { background-color: #6e5896; }
+.modal-content.ghost .modal-pokemon-name { color: var(--text-light); }
+.modal-content.ghost .modal-pokemon-number { color: var(--text-light); background-color: rgba(0,0,0,0.2); }
+.modal-content.ghost .modal-close { color: var(--text-light); }
+.modal-content.ghost .modal-close:hover { color: var(--text-light); opacity: 0.8;}
+.modal-content.ghost .stat-bar { background-color: #6e5896; }
+.modal-types .ghost { background-color: #6e5896; color: var(--text-light); }
+
+/* Dragon */
+.modal-content.dragon .modal-header { background-color: #6f38f6; }
+.modal-content.dragon .modal-pokemon-name { color: var(--text-light); }
+.modal-content.dragon .modal-pokemon-number { color: var(--text-light); background-color: rgba(0,0,0,0.2); }
+.modal-content.dragon .modal-close { color: var(--text-light); }
+.modal-content.dragon .modal-close:hover { color: var(--text-light); opacity: 0.8;}
+.modal-content.dragon .stat-bar { background-color: #6f38f6; }
+.modal-types .dragon { background-color: #6f38f6; color: var(--text-light); }
+
+/* Dark */
+.modal-content.dark .modal-header { background-color: #725847; }
+.modal-content.dark .modal-pokemon-name { color: var(--text-light); }
+.modal-content.dark .modal-pokemon-number { color: var(--text-light); background-color: rgba(0,0,0,0.2); }
+.modal-content.dark .modal-close { color: var(--text-light); }
+.modal-content.dark .modal-close:hover { color: var(--text-light); opacity: 0.8;}
+.modal-content.dark .stat-bar { background-color: #725847; }
+.modal-types .dark { background-color: #725847; color: var(--text-light); }
+
+/* Steel */
+.modal-content.steel .modal-header { background-color: #b9b7cf; }
+.modal-content.steel .modal-pokemon-name { color: var(--text-dark); }
+.modal-content.steel .modal-pokemon-number { color: var(--text-dark); background-color: rgba(255,255,255,0.4); }
+.modal-content.steel .modal-close { color: var(--text-dark); }
+.modal-content.steel .modal-close:hover { color: var(--text-dark); opacity: 0.7;}
+.modal-content.steel .stat-bar { background-color: #b9b7cf; }
+.modal-types .steel { background-color: #b9b7cf; color: var(--text-dark); }
+
+/* Fairy  */
+.modal-content.fairy .modal-header { background-color: #f9aec7; }
+.modal-content.fairy .modal-pokemon-name { color: var(--text-dark); }
+.modal-content.fairy .modal-pokemon-number { color: var(--text-dark); background-color: rgba(255,255,255,0.4); }
+.modal-content.fairy .modal-close { color: var(--text-dark); }
+.modal-content.fairy .modal-close:hover { color: var(--text-dark); opacity: 0.7;}
+.modal-content.fairy .stat-bar { background-color: #f9aec7; }
+.modal-types .fairy { background-color: #f9aec7; color: var(--text-dark); }
+
+
+
+@media screen and (max-width: 600px) {
+    .modal-content {
+        max-width: 95%;
+        max-height: 88vh; 
+        border-radius: 10px; 
+    }
+    .modal-pokemon-name {
+        font-size: 1.6em;
+    }
+     .modal-pokemon-number {
+        font-size: 1em;
+        padding: 3px 8px;
+    }
+    .modal-header, .modal-body-content {
+        padding: 15px;
+    }
+    .modal-stats .stat-name {
+        width: 100px; 
+        font-size: 0.9em;
+    }
+     .modal-stats .stat-value {
+        width: 35px;
+        font-size: 0.9em;
+        margin-right: 8px;
+    }
+    .modal-image-container img {
+        max-width: 160px;
+        max-height: 160px;
+    }
+     .modal-types .type {
+        padding: 6px 15px;
+        font-size: 0.85em;
+        margin: 4px;
+    }
+}

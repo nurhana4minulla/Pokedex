@@ -1,0 +1,74 @@
+
+
+:root {
+    --primary-color: #0A2E50;
+    --secondary-color: #F0F4F8;
+    --accent-color: #FFCB05; 
+    --accent-hover-color: #E0B400; 
+    --text-dark: #333333;
+    --text-light: #FFFFFF;
+    --font-main: 'Poppins', sans-serif;
+}
+
+* {
+    font-family: var(--font-main);
+    box-sizing: border-box;
+    margin: 0; 
+    padding: 0; 
+}
+
+html {
+    scroll-behavior: smooth; 
+}
+
+body {
+    background-color: var(--secondary-color); 
+    color: var(--text-dark);
+    line-height: 1.6;
+   
+}
+
+.content {
+    width: 100%;
+    max-width: 1100px;
+    margin: 2rem auto; 
+    padding: 1.5rem;
+    background-color: var(--text-light); 
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+    color: var(--primary-color);
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+}
+
+/* Links */
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+a:hover {
+    color: var(--accent-color);
+    text-decoration: underline;
+}
+
+/* Buttons */
+button {
+    cursor: pointer;
+    border: none;
+    border-radius: 6px;
+    padding: 0.6em 1.2em;
+    font-weight: 500;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+@media screen and (max-width: 768px) {
+    .content {
+        margin: 1.5rem 1rem; 
+        padding: 1rem;
+    }
+}
